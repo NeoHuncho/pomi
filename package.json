@@ -1,0 +1,12 @@
+{
+  "name": "pomi",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:backend": "yarn workspace @pomi/backend start:dev",
+    "dev:frontend": "yarn workspace @pomi/frontend tauri dev",
+    "build": "yarn workspaces foreach run build"
+  }
+}
