@@ -5,7 +5,7 @@
   "identifier": "com.pomi.app",
   "build": {
     "beforeDevCommand": "yarn dev",
-    "devUrl": "http://localhost:1420",
+    "devUrl": "http://0.0.0.0:1420",
     "beforeBuildCommand": "yarn build",
     "frontendDist": "../dist"
   },

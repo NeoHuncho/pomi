@@ -1,11 +1,8 @@
+// filepath: /Users/william/Documents/personal/pomi/packages/backend/src/app.module.ts
 import { Module } from '@nestjs/common';
-import { ConfigModule } from '@nestjs/config';
+import { TimerModule } from './timer/timer.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-  ],
+  imports: [TimerModule],
 })
 export class AppModule {}
