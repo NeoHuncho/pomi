@@ -19,7 +19,16 @@ export class TimerGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer()
   server: Server;
 
-  constructor(private timerService: TimerService) {}
+  constructor(private timerService: TimerService) {
+    // Send timer updates to all clients every second
+    setInterval(async () => {
+      const timerStr = await this.timerService.redis.get('current_timer');
+      if (timerStr) {
+        const timer = JSON.parse(timerStr);
+        this.server.emit('timerUpdate', timer);
+      }
+    }, 1000);
+  }
 
   handleConnection(client: Socket) {
     console.log('Client connected:', client.id);
